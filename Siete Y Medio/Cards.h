@@ -1,6 +1,8 @@
 #ifndef Cards_h
 #define Cards_h
 
+#include <vector>
+
 enum suit_t {OROS, BASTOS, ESPADAS, COPAS};
 enum rank_t {AS, DOS, TRES, CUATRO, CINCO, SEIS, SIETE, SOTA, CABALLO, REY};
 
@@ -33,8 +35,22 @@ class Hand {
 public:
     Hand();
     
-private:
+    int hand_val() const;
+    void add_card(Card a);
+    bool bust() const;
     
+private:
+    std::vector<Card> play_hand;
+    
+};
+
+
+class Player {
+public:
+    Player (int m);
+    
+private:
+    int money;
 };
 
 

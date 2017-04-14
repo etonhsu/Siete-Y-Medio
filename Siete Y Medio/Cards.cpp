@@ -3,6 +3,8 @@
 #include "Cards.h"
 
 
+//Card Class Functions
+
 Card::Card() {
     int x = 1 + rand() % 4; //determines card suit
     switch(x) {
@@ -90,6 +92,66 @@ std::string Card::get_spanish_rank() const {
 }
 
 
+std::string Card::get_english_suit() const {
+    std::string suitName;
+    switch (suit) {
+        case OROS:
+            suitName = "coins";
+            break;
+        case COPAS:
+            suitName = "cups";
+            break;
+        case ESPADAS:
+            suitName = "spades";
+            break;
+        case BASTOS:
+            suitName = "clubs";
+            break;
+        default: break;
+    }
+    return suitName;
+}
+
+
+std::string Card::get_english_rank() const {
+    std::string rankName;
+    switch (rank) {
+        case AS:
+            rankName = "Ace";
+            break;
+        case DOS:
+            rankName = "Two";
+            break;
+        case TRES:
+            rankName = "Three";
+            break;
+        case CUATRO:
+            rankName = "Four";
+            break;
+        case CINCO:
+            rankName = "Five";
+            break;
+        case SEIS:
+            rankName = "Six";
+            break;
+        case SIETE:
+            rankName = "Seven";
+            break;
+        case SOTA:
+            rankName = "Jack";
+            break;
+        case CABALLO:
+            rankName = "Knight";
+            break;
+        case REY:
+            rankName = "King";
+            break;
+        default: break;
+    }
+    return rankName;
+}
+
+
 int Card::get_rank() const {
     int card_rank;
     switch (rank) {
@@ -130,6 +192,10 @@ int Card::get_rank() const {
 }
 
 
+bool Card::operator < (Card card2) const {
+    return get_rank() < card2.get_rank();
+}
+
 
 double Card::get_value() const {
     double card_val;
@@ -169,6 +235,48 @@ double Card::get_value() const {
     
     return card_val;
 }
+
+
+
+//Hand Class Functions
+
+Hand::Hand() {}
+
+
+int Hand::hand_val() const //calculates the value of each player's hand
+{
+    double total_value = 0;
+    for (auto x : play_hand)
+    {
+        total_value += x.get_value();
+    }
+    
+    return total_value;
+}
+
+
+void Hand::add_card(Card a)
+{
+    play_hand.push_back(a);
+}
+
+
+bool Hand::bust() const
+{
+    if (hand_val() > 7.5) {
+        return true;
+    }
+    
+    else {
+        return false;
+    }
+}
+
+
+
+//Player Class Functions
+
+Player::Player(int m) : money(m) {}
 
 
 

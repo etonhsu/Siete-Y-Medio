@@ -8,6 +8,9 @@
 
 int main()
 {
-    std::cout << "hello world!";
-    return 0;
+    Player player(100);
+    Player dealer(900);
+    
 }
+
+
