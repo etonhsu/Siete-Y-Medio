@@ -9,21 +9,31 @@ public:
     Card();
     
     //Accessors
-    void get_spanish_suit() const;
-    void get_spanish_rank() const;
-    void get_english_suit() const;
-    void get_english_rank() const;
+    std::string get_spanish_suit() const;
+    std::string get_spanish_rank() const;
+    std::string get_english_suit() const;
+    std::string get_english_rank() const;
     
     //Sorting
     int get_rank() const;
     bool operator< (Card card2) const;
     
     //Siete Y Medio Value
-    int get_value() const;
+    double get_value() const;
     
 private:
     suit_t suit;
     rank_t rank;
+    int value;
+    
+};
+
+
+class Hand {
+public:
+    Hand();
+    
+private:
     
 };
 
