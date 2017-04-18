@@ -152,6 +152,13 @@ std::string Card::get_english_rank() const {
 }
 
 
+void Card::print_card() const {
+    std::cout << "\t" << get_spanish_rank() << " de " << get_spanish_suit();
+    std::cout << "\t\t(" << get_english_rank();
+    std::cout << " of " << get_english_suit() << ")\n";
+}
+
+
 int Card::get_rank() const {
     int card_rank;
     switch (rank) {
@@ -261,6 +268,17 @@ void Hand::add_card(Card a)
 }
 
 
+void Hand::print_hand() const
+{
+    for (auto x : play_hand)
+    {
+        std::cout << "\t" << x.get_spanish_rank() << " de " << x.get_spanish_suit();
+        std::cout << "\t\t(" << x.get_english_rank();
+        std::cout << " of " << x.get_english_suit() << ")\n";
+    }
+}
+
+
 bool Hand::bust() const
 {
     if (hand_val() > 7.5) {
@@ -272,11 +290,6 @@ bool Hand::bust() const
     }
 }
 
-
-
-//Player Class Functions
-
-Player::Player(int m) : money(m) {}
 
 
 

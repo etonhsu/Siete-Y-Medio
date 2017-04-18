@@ -16,6 +16,8 @@ public:
     std::string get_english_suit() const;
     std::string get_english_rank() const;
     
+    void print_card() const;
+    
     //Sorting
     int get_rank() const;
     bool operator< (Card card2) const;
@@ -37,20 +39,12 @@ public:
     
     int hand_val() const;
     void add_card(Card a);
+    void print_hand() const;
     bool bust() const;
     
 private:
     std::vector<Card> play_hand;
     
-};
-
-
-class Player {
-public:
-    Player (int m);
-    
-private:
-    int money;
 };
 
 
