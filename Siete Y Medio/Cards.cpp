@@ -250,7 +250,7 @@ double Card::get_value() const {
 Hand::Hand() {}
 
 
-int Hand::hand_val() const //calculates the value of each player's hand
+double Hand::hand_val() const //calculates the value of each player's hand
 {
     double total_value = 0;
     for (auto x : play_hand)

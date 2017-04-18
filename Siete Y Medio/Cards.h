@@ -28,7 +28,7 @@ public:
 private:
     suit_t suit;
     rank_t rank;
-    int value;
+    double value;
     
 };
 
@@ -37,7 +37,7 @@ class Hand {
 public:
     Hand();
     
-    int hand_val() const;
+    double hand_val() const;
     void add_card(Card a);
     void print_hand() const;
     bool bust() const;

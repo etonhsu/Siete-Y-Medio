@@ -72,7 +72,28 @@ int main()
         
         std::cout << "Dealer's total is " << dealer_hand.hand_val() << ".\n\n";
     
+        
+        //Testing comparisons
+        if (player_hand.bust()) {
+            std::cout << "player has busted!" << std::endl;
+        }
+        
+        if (dealer_hand.bust()) {
+            std::cout << "dealer has busted!" << std::endl;
+        }
+        
+        if (player_hand.hand_val() > dealer_hand.hand_val()) {
+            std::cout << "player has won!" << std::endl;
+        }
+        
+        if (player_hand.hand_val() < dealer_hand.hand_val()) {
+            std::cout << "dealer has won!" << std::endl;
+        }
+        
     }
+    
+    
+    
     
     
     
