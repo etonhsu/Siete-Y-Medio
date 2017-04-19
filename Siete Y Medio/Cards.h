@@ -1,7 +1,7 @@
 #ifndef Cards_h
 #define Cards_h
 
-#include <vector>
+#include <set>
 
 enum suit_t {OROS, BASTOS, ESPADAS, COPAS};
 enum rank_t {AS, DOS, TRES, CUATRO, CINCO, SEIS, SIETE, SOTA, CABALLO, REY};
@@ -43,7 +43,7 @@ public:
     bool bust() const;
     
 private:
-    std::vector<Card> play_hand;
+    std::multiset<Card> play_hand;
     
 };
 
