@@ -5,22 +5,24 @@
 #include <ctime>
 #include <fstream>
 #include "Cards.h"
-
+#include "InputFile.h"
+#include "OutputFile.h"
 
 int main()
 {
-    std::ofstream gamelog;
-    gamelog.open("gamelog.txt");
+    OutputFile gamelog_out("gamelog.txt");
+    InputFile gamelog_in("gamelog.txt");
     
     srand((int)time(0)); //ensures that the random number generated isn't the same
+    int game_counter = 1;
     int player_money = 100; //initializes player with $100
     int dealer_money = 900; //initializes dealer with $900
     bool game_done = false;
+    
 
 
     while (player_money != 0 && dealer_money != 0) {
         while (!game_done) {
-            
             //Player bets
             std::cout << "You have " << player_money << ".";
             std::cout << " Enter bet: ";
@@ -144,7 +146,7 @@ int main()
         std::cout << "Congratulations, you win!\n";
     }
     
-    gamelog.close();
+
     return 0;
 
 }
